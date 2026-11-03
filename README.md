@@ -43,3 +43,9 @@ O SQLite dispensa servidor externo; as consultas são parametrizadas. Não há i
 ## Próximos passos
 
 Adicionar edição, exclusão, filtros e testes da interface de linha de comando.
+
+## Contato
+
+Ricardo da Silva Pereira  
+Celular: +55 (11) 95934-1288  
+[WhatsApp](https://wa.me/5511959341288)
