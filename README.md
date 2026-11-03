@@ -14,7 +14,78 @@ Python 3.9 ou mais recente. Não é necessário instalar bibliotecas externas.
 
 # Organizador de tarefas em Python
 
-Aplicação de linha de comando para cadastrar, consultar e concluir tarefas, mantendo os dados em um banco SQLite local. Projeto de estudo para praticar Python, SQL básico e testes automatizados.
+# Organizador de tarefas em Python
+
+Aplicação de linha de comando para cadastrar, consultar e concluir tarefas, mantendo os dados em banco SQLite local. Projeto de estudo para praticar Python, SQL básico e testes automatizados.
+
+## Problema e objetivo
+
+Uma lista de tarefas simples precisa continuar disponível entre execuções sem exigir servidor ou serviço externo. O programa armazena tarefas em SQLite e permite manipulá-las pelo terminal.
+
+## Funcionalidades
+
+- Adiciona tarefas com título não vazio.
+- Lista tarefas em ordem de cadastro, indicando se foram concluídas.
+- Marca como concluída uma tarefa pelo identificador.
+- Permite escolher o caminho do banco com `--banco` (padrão: `tarefas.db`).
+- Usa apenas a biblioteca padrão do Python, incluindo `sqlite3`, `argparse` e `unittest`.
+
+## Tecnologias e requisitos
+
+Python 3.9 ou superior. Não há dependências externas.
+
+## Instalação
+
+```bash
+git clone https://github.com/rick0719/organizador-tarefas-python.git
+cd organizador-tarefas-python
+```
+
+## Exemplos de uso
+
+Execute a partir da raiz. `tarefas.db` será criado localmente se necessário.
+
+```bash
+python src/tarefas.py adicionar "Estudar Python"
+python src/tarefas.py listar
+python src/tarefas.py concluir 1
+python src/tarefas.py --banco /tmp/minhas-tarefas.db adicionar "Revisar testes"
+```
+
+Listagem mostra `[ ]` para pendente e `[x]` para concluída. Título vazio é rejeitado; ID inexistente retorna erro.
+
+## Testes
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Os testes usam SQLite em memória e cobrem inclusão/listagem, conclusão, ID inexistente e título vazio, sem alterar o banco local.
+
+## Estrutura
+
+```text
+.
+├── src/tarefas.py       # operações SQLite e interface de linha de comando
+├── tests/test_tarefas.py # testes automatizados com unittest
+├── .gitignore
+└── README.md
+```
+
+## Decisões técnicas
+
+- SQLite local evita configurar servidor e mantém os dados entre execuções.
+- Consultas usam parâmetros SQL (`?`) para valores fornecidos.
+- Operações de banco ficam separadas da interface de argumentos, facilitando testes.
+- Os testes usam `:memory:` para isolamento.
+
+## Limitações e próximos passos
+
+Aplicação didática de terminal, não um sistema multiusuário. Não há edição/exclusão, categorias, datas-limite, busca, interface gráfica ou filtros. Evoluções possíveis: edição, exclusão e filtros.
+
+## Créditos e uso de IA
+
+Projeto de estudo desenvolvido com apoio da Zapia. A IA apoiou organização e documentação; código e instruções devem ser conferidos e compreendidos pelo estudante. Não representa experiência profissional nem métricas de uso.Aplicação de linha de comando para cadastrar, consultar e concluir tarefas, mantendo os dados em um banco SQLite local. Projeto de estudo para praticar Python, SQL básico e testes automatizados.
 
 ## Problema e objetivo
 
